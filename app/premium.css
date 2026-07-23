@@ -20,3 +20,5 @@ footer{background:var(--premium-paper)!important;border-color:var(--premium-ink)
 .robot-chest-brand{gap:.35rem!important}
 .robot-chest-brand span{padding:.18rem .4rem!important;font-size:clamp(.36rem,.42vw,.46rem)!important;letter-spacing:.14em!important;background:rgba(10,14,12,.66)!important}
 .robot-chest-brand:before{width:90px;height:90px;background:radial-gradient(circle,rgba(238,234,225,.8),rgba(180,154,104,.35) 25%,transparent 68%)}
+.zyberly-wordmark{display:block;object-fit:cover;object-position:center}
+.robot-chest-brand img.zyberly-wordmark{width:clamp(96px,8vw,132px)!important;height:clamp(32px,2.7vw,44px)!important;border-radius:8px!important;object-fit:cover}

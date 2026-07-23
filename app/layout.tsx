@@ -23,12 +23,12 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Pie Tech Solutions | Digital Growth for Modern Brands",
+  title: "Zyberly Solutions | Digital Growth for Modern Brands",
   description: "Digital marketing, web and app development, and creative solutions built for growth.",
   icons: {
-    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
-    shortcut: "/favicon.svg",
-    apple: "/favicon.svg",
+    icon: [{ url: "/zyberly%20logo.jpg.jpeg", type: "image/jpeg" }],
+    shortcut: "/zyberly%20logo.jpg.jpeg",
+    apple: "/zyberly%20logo.jpg.jpeg",
   },
 };
 
