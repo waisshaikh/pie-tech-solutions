@@ -9,6 +9,8 @@ const projects = [
   { number: '01', title: 'Oblix Pharma', category: 'Healthcare · Web Development', description: 'A polished pharmaceutical website presenting the company, products and healthcare expertise through a clear digital experience.', tags: ['Healthcare', 'Responsive', 'Corporate'], cover: '/portfolio/oblixpharma.png', href: 'https://oblixpharma.com/' },
   { number: '02', title: 'Saleem Bridals', category: 'Fashion · E-commerce', description: 'An elegant bridal shopping experience designed to showcase collections and help customers discover statement occasion wear.', tags: ['E-commerce', 'Fashion', 'Mobile'], cover: '/portfolio/saleem%20%20bridal.png', href: 'https://saleemsbridalstore.com/' },
   { number: '03', title: 'Aaeesha Boutique', category: 'Fashion · Boutique', description: 'A contemporary boutique storefront balancing expressive fashion imagery with a simple, conversion-focused shopping journey.', tags: ['Boutique', 'Commerce', 'UI/UX'], cover: '/portfolio/aaeesha%20boutique.png', href: 'https://aaeeshaboutique.com/' },
+  { number: '04', title: 'SK Corporate Wear', category: 'Corporate Fashion · E-commerce', description: 'A professional corporate-wear storefront showcasing uniforms, workwear collections and tailored apparel solutions.', tags: ['Corporate Wear', 'E-commerce', 'Responsive'], cover: '/portfolio/sk%20corporate.png', href: 'https://skcorporatewear.com/' },
+  { number: '05', title: 'Gulmarg Destinations', category: 'Travel · Tourism', description: 'An immersive destination website helping travellers explore Gulmarg experiences, stays and memorable mountain adventures.', tags: ['Travel', 'Destination', 'Responsive'], cover: '/portfolio/gulmarg.png', href: 'https://gulmarg-destinations.vercel.app/' },
 ] as const;
 
 function ProjectCover({ title, cover, index }: { title: string; cover: string | null; index: number }) {
@@ -41,7 +43,7 @@ export default function PortfolioPage() {
           <h1>WORK THAT<br /><span>MAKES AN</span><br />IMPACT.</h1>
           <div className="portfolio-hero-bottom">
             <p>A growing collection of digital experiences created for ambitious businesses across industries.</p>
-            <span>03 <small>FEATURED<br />PROJECTS</small></span>
+            <span>05 <small>FEATURED<br />PROJECTS</small></span>
           </div>
         </div>
       </section>
@@ -55,7 +57,9 @@ export default function PortfolioPage() {
           <div className="portfolio-grid">
             {projects.map((project, index) => (
               <article className="portfolio-project" key={project.number}>
-                <ProjectCover title={project.title} cover={project.cover} index={index} />
+                <a href={project.href} target="_blank" rel="noopener noreferrer" className="block" aria-label={`Visit ${project.title} website`}>
+                  <ProjectCover title={project.title} cover={project.cover} index={index} />
+                </a>
                 <div className="portfolio-project-meta">
                   <div className="portfolio-project-index">{project.number}</div>
                   <div>

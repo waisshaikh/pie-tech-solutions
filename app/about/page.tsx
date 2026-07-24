@@ -1,3 +1,79 @@
-import type { Metadata } from 'next'; import Link from 'next/link'; import { ArrowRight } from 'lucide-react'; import { PageHero } from '@/components/page-hero';
-export const metadata: Metadata={title:'About | Zyberly Solutions'};
-export default function About(){return <><PageHero eyebrow="About us" title="Small team. Big energy." description="We are an independent digital studio built for businesses that want a sharper strategy, stronger technology, and work with real character."/><section className="section-pad"><div className="shell grid gap-16 lg:grid-cols-2"><span className="kicker">Our point of view</span><div><h2 className="text-4xl font-semibold leading-tight tracking-[-.04em] sm:text-6xl">The best digital work feels clear, useful, and unmistakably yours.</h2><p className="mt-8 text-lg leading-8 text-white/52">Zyberly Solutions brings strategists, designers, developers, and growth thinkers together. That means fewer handoffs, faster decisions, and one connected idea from first sketch to market.</p></div></div></section><section className="bg-offwhite py-24 text-ink sm:py-32"><div className="shell"><span className="kicker !text-ink/45 before:!bg-ink">What drives us</span><div className="mt-12 grid gap-px bg-ink/12 md:grid-cols-3">{[['Curiosity','We question the obvious and look for the useful truth underneath.'],['Craft','The small decisions create the big feeling. We sweat every one.'],['Candor','Straight conversations lead to smarter work and stronger partnerships.']].map(([t,d],i)=><article className="bg-offwhite p-8 sm:p-10" key={t}><span className="text-sm text-ink/35">0{i+1}</span><h3 className="mt-20 text-3xl font-semibold">{t}</h3><p className="mt-4 leading-7 text-ink/58">{d}</p></article>)}</div></div></section><section className="section-pad"><div className="shell cta-panel"><h2>Make us part of your team.</h2><Link className="button-primary" href="/contact">Meet your next partner <ArrowRight size={18}/></Link></div></section></>}
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowRight, Eye, Gem, MessageCircle, Sparkles } from 'lucide-react';
+
+export const metadata: Metadata = { title: 'About | Zyberly Solutions' };
+
+const values = [
+  { number: '01', icon: Eye, title: 'Curiosity', text: 'We question the obvious, explore what others overlook and find the useful truth underneath.', tone: 'paper' },
+  { number: '02', icon: Gem, title: 'Craft', text: 'The small decisions create the big feeling. We care deeply about every interaction and every detail.', tone: 'blue' },
+  { number: '03', icon: MessageCircle, title: 'Candor', text: 'Straight conversations create smarter work, faster decisions and stronger long-term partnerships.', tone: 'forest' },
+] as const;
+
+export default function AboutPage() {
+  return (
+    <div className="premium-about-page">
+      <section className="about-editorial-hero">
+        <div className="about-hero-ring" />
+        <div className="about-hero-dot" />
+        <div className="shell relative z-10">
+          <div className="about-hero-top">
+            <span className="mono-label">[ ABOUT ZYBERLY · EST. 2026 ]</span>
+            <p>An independent digital studio<br />for brands ready to move forward.</p>
+          </div>
+          <h1>SMALL TEAM.<br /><span>BIG ENERGY.</span><br />REAL IMPACT.</h1>
+          <div className="about-hero-bottom">
+            <p>Strategy, design, technology and growth thinking brought together as one connected creative force.</p>
+            <Sparkles />
+          </div>
+        </div>
+      </section>
+
+      <section className="about-manifesto">
+        <div className="shell">
+          <div className="about-manifesto-grid">
+            <span className="mono-label">[ OUR POINT OF VIEW ]</span>
+            <p>THE BEST DIGITAL WORK FEELS <em>CLEAR, USEFUL</em> AND UNMISTAKABLY YOURS.</p>
+          </div>
+          <div className="about-story-grid">
+            <div className="about-story-number">01</div>
+            <h2>One idea.<br />One connected team.</h2>
+            <div>
+              <p>Zyberly brings strategists, designers, developers and growth thinkers together. Fewer handoffs mean faster decisions, sharper execution and one clear idea from first sketch to market.</p>
+              <p>We partner with ambitious businesses that value momentum, honesty and work with real character.</p>
+            </div>
+          </div>
+          <div className="about-stats">
+            <div><strong>05+</strong><span>LIVE DIGITAL<br />EXPERIENCES</span></div>
+            <div><strong>04</strong><span>CONNECTED<br />DISCIPLINES</span></div>
+            <div><strong>01</strong><span>DEDICATED<br />TEAM</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section className="about-values">
+        <div className="shell">
+          <div className="about-values-heading">
+            <span className="mono-label">[ WHAT DRIVES US ]</span>
+            <h2>VALUES YOU CAN<br />FEEL IN THE WORK.</h2>
+          </div>
+          <div className="about-values-grid">
+            {values.map(({ number, icon: Icon, title, text, tone }) => (
+              <article className={`about-value-card about-value-${tone}`} key={number}>
+                <div><span>{number}</span><Icon /></div>
+                <h3>{title}</h3>
+                <p>{text}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="about-premium-cta">
+        <span className="mono-label">MAKE US PART OF YOUR TEAM</span>
+        <h2>BIG AMBITION<br />DESERVES A<br /><em>BOLD PARTNER.</em></h2>
+        <Link href="/contact">MEET YOUR NEXT PARTNER <ArrowRight size={20} /></Link>
+      </section>
+    </div>
+  );
+}
