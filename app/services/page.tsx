@@ -1,4 +1,36 @@
-import type { Metadata } from 'next'; import Link from 'next/link'; import { ArrowRight, BarChart3, Braces, Palette, Search, Smartphone, Megaphone } from 'lucide-react'; import { PageHero } from '@/components/page-hero';
-export const metadata: Metadata={title:'Services | Zyberly Solutions'};
-const items=[{icon:BarChart3,n:'01',title:'Digital Marketing',desc:'Turn awareness into action with an integrated growth engine.',list:['Growth strategy','Performance marketing','SEO & content','Analytics']},{icon:Braces,n:'02',title:'Web Development',desc:'High-performance websites designed to sell, scale, and stay simple.',list:['Marketing websites','E-commerce','CMS development','Optimization']},{icon:Smartphone,n:'03',title:'App Development',desc:'Useful, intuitive applications shaped around real user behavior.',list:['Product strategy','UX & UI design','Web applications','MVP development']},{icon:Palette,n:'04',title:'Brand & Creative',desc:'A visual and verbal identity with the confidence to stand apart.',list:['Brand strategy','Identity systems','Campaign creative','Motion & content']},{icon:Search,n:'05',title:'Digital Strategy',desc:'Find the smartest route from where your brand is to where it can go.',list:['Research','Experience strategy','Roadmaps','Conversion strategy']},{icon:Megaphone,n:'06',title:'Campaigns',desc:'Big ideas built to travel across channels and move people.',list:['Creative concepts','Launch campaigns','Social content','Production']}];
-export default function Services(){return <><PageHero eyebrow="Our services" title="Everything you need to move forward." description="From the first strategic question to the final line of code, we connect the capabilities modern brands need to grow."/><section className="section-pad"><div className="shell grid border-l border-t border-white/12 md:grid-cols-2 lg:grid-cols-3">{items.map(({icon:Icon,n,title,desc,list})=><article className="service-card" key={title}><div className="flex justify-between"><span className="text-white/32">{n}</span><Icon className="text-lime"/></div><h2>{title}</h2><p>{desc}</p><ul className="mt-8 space-y-3">{list.map(x=><li className="flex items-center gap-3 text-sm text-white/55" key={x}><span className="h-1 w-1 rounded-full bg-lime"/>{x}</li>)}</ul></article>)}</div></section><section className="bg-lime py-16 text-ink"><div className="shell flex flex-col items-start justify-between gap-8 md:flex-row md:items-center"><h2 className="max-w-3xl text-4xl font-semibold sm:text-5xl">Not sure what you need yet? That’s a good place to start.</h2><Link className="inline-flex items-center gap-2 rounded-full bg-ink px-6 py-4 font-semibold text-white" href="/contact">Talk it through <ArrowRight size={18}/></Link></div></section></>}
+import type { Metadata } from 'next';
+import Link from 'next/link';
+import { ArrowRight, BarChart3, Code2, LayoutTemplate, Palette, Smartphone, Sparkles } from 'lucide-react';
+import { PageHero } from '@/components/page-hero';
+
+export const metadata: Metadata = { title: 'Services | Zyberly Solutions' };
+
+const services = [
+  { icon: LayoutTemplate, title: 'Web Development', description: 'We build custom, responsive, and high-performance websites that deliver exceptional user experiences using modern technologies.', features: ['Frontend Development', 'Backend Systems', 'E-commerce Solutions'] },
+  { icon: Smartphone, title: 'Mobile App Development', description: 'We create native and cross-platform mobile applications that engage users with smooth performance and intuitive interfaces.', features: ['iOS & Android Apps', 'Cross-platform Solutions', 'App Maintenance & Updates'] },
+  { icon: Palette, title: 'UI/UX Design', description: 'We craft beautiful, intuitive interfaces that elevate your brand and provide exceptional user experiences.', features: ['User Experience Research', 'Interface Design', 'Usability Testing'] },
+  { icon: BarChart3, title: 'Digital Marketing', description: 'We develop data-driven marketing strategies that boost your visibility, engage your audience, and drive conversions.', features: ['Search Engine Optimization', 'Social Media Marketing', 'Paid Advertising'] },
+  { icon: Sparkles, title: 'Branding & Identity', description: 'We create distinctive brand identities that resonate with your audience and communicate your unique value proposition.', features: ['Logo Design', 'Brand Strategy', 'Visual Identity Systems'] },
+  { icon: Code2, title: 'Custom Software', description: 'We develop tailored software solutions that streamline operations, automate processes, and drive business efficiency.', features: ['Enterprise Applications', 'SaaS Products', 'API Development & Integration'] },
+];
+
+export default function ServicesPage() {
+  return (
+    <>
+      <PageHero eyebrow="Our services" title="Everything your brand needs." description="We deliver exceptional results across multiple disciplines with precision and elegance." />
+      <section className="section-pad">
+        <div className="shell grid border-l border-t border-white/12 md:grid-cols-2 lg:grid-cols-3">
+          {services.map(({ icon: Icon, title, description, features }, index) => (
+            <article className="service-card" key={title}>
+              <div className="flex justify-between"><span className="text-white/32">0{index + 1}</span><Icon className="text-lime" /></div>
+              <h2>{title}</h2>
+              <p>{description}</p>
+              <ul className="mt-8 space-y-3">{features.map((feature) => <li className="text-sm text-white/55" key={feature}>✓ {feature}</li>)}</ul>
+              <Link href="/contact" className="card-link">Start a project <ArrowRight size={16} /></Link>
+            </article>
+          ))}
+        </div>
+      </section>
+    </>
+  );
+}
