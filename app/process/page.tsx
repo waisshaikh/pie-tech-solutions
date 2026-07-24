@@ -1,38 +1,63 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { ArrowRight } from 'lucide-react';
-import { PageHero } from '@/components/page-hero';
+import { ArrowRight, Compass, DraftingCompass, Rocket, TerminalSquare } from 'lucide-react';
 
 export const metadata: Metadata = { title: 'Process | Zyberly Solutions' };
 
 const steps = [
-  ['01', 'Discovery & Strategy', 'We begin by understanding your business, goals, target audience, and competition to inform our strategy.', ['Stakeholder interviews', 'Market & competitor analysis', 'User research', 'Project scoping & planning']],
-  ['02', 'Design & User Experience', 'We create detailed wireframes, prototypes and design mockups that align with your brand and delight users.', ['Information architecture', 'Wireframing & prototyping', 'Visual design & branding', 'User testing & iteration']],
-  ['03', 'Development & Engineering', 'Our engineers bring the designs to life with clean, efficient, and maintainable code using modern technologies.', ['Frontend development', 'Backend systems architecture', 'API integration', 'Quality assurance & testing']],
-  ['04', 'Launch & Growth', 'We provide reliable hosting, ongoing support, maintenance, and continuous improvements to ensure long-term success.', ['Secure hosting & deployment', 'Performance optimization', 'Analytics & monitoring', 'Ongoing support & enhancement']],
+  { number: '01', icon: Compass, title: 'Discovery & Strategy', label: 'Find the real opportunity', description: 'We begin by understanding your business, goals, target audience and competitive landscape, turning what we learn into a focused direction.', points: ['Stakeholder interviews', 'Market & competitor analysis', 'User research', 'Project scoping & planning'], tone: 'paper' },
+  { number: '02', icon: DraftingCompass, title: 'Design & User Experience', label: 'Make complexity feel simple', description: 'We create wireframes, prototypes and expressive visual systems that align with your brand while making every interaction feel natural.', points: ['Information architecture', 'Wireframing & prototyping', 'Visual design & branding', 'User testing & iteration'], tone: 'blue' },
+  { number: '03', icon: TerminalSquare, title: 'Development & Engineering', label: 'Build for today and tomorrow', description: 'Our engineers bring the experience to life with clean, efficient and maintainable code built on dependable modern technologies.', points: ['Frontend development', 'Backend systems architecture', 'API integration', 'Quality assurance & testing'], tone: 'forest' },
+  { number: '04', icon: Rocket, title: 'Launch & Growth', label: 'Turn momentum into growth', description: 'We launch with confidence, then support, measure and continuously improve the product to ensure meaningful long-term performance.', points: ['Secure hosting & deployment', 'Performance optimization', 'Analytics & monitoring', 'Ongoing support & enhancement'], tone: 'paper' },
 ] as const;
 
 export default function ProcessPage() {
   return (
-    <>
-      <PageHero eyebrow="Our process" title="A proven methodology. Exceptional outcomes." description="We follow a proven methodology to ensure your project is delivered on time and exceeds expectations." />
-      <section className="section-pad">
+    <div className="premium-process-page">
+      <section className="process-editorial-hero">
+        <div className="process-disc process-disc-one" />
+        <div className="process-disc process-disc-two" />
+        <div className="shell relative z-10">
+          <div className="process-hero-top">
+            <span className="mono-label">[ OUR PROCESS · 01—04 ]</span>
+            <p>A clear, collaborative path<br />from first thought to lasting impact.</p>
+          </div>
+          <h1>CLARITY<br />FIRST.<br /><span>MOMENTUM ALWAYS.</span></h1>
+          <div className="process-hero-bottom">
+            <p>We follow a proven methodology to ensure every project is delivered on time and exceeds expectations.</p>
+            <span className="process-count">04 <small>CONNECTED<br />STAGES</small></span>
+          </div>
+        </div>
+      </section>
+
+      <section className="process-story">
         <div className="shell">
-          {steps.map(([number, title, description, points]) => (
-            <article key={number} className="grid gap-8 border-t border-white/14 py-12 lg:grid-cols-[100px_1fr_1.1fr]">
-              <span className="text-lime">{number}</span>
-              <div><h2 className="text-3xl font-semibold sm:text-4xl">{title}</h2><p className="mt-5 leading-7 text-white/52">{description}</p></div>
-              <ul className="space-y-3 text-white/55">{points.map((point) => <li key={point}>✓ {point}</li>)}</ul>
-            </article>
-          ))}
+          <div className="process-story-heading">
+            <span className="mono-label">[ HOW WE MOVE ]</span>
+            <h2>NO BLACK BOX.<br />JUST FORWARD MOTION.</h2>
+          </div>
+          <div className="process-track">
+            {steps.map(({ number, icon: Icon, title, label, description, points, tone }, index) => (
+              <article className={`process-stage process-tone-${tone} ${index % 2 ? 'process-stage-right' : ''}`} key={number}>
+                <span className="process-stage-number">{number}</span>
+                <div className="process-stage-icon"><Icon /></div>
+                <div className="process-stage-copy">
+                  <span className="mono-label">{label}</span>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </div>
+                <ul>{points.map((point) => <li key={point}>↗ {point}</li>)}</ul>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
-      <section className="bg-offwhite py-24 text-ink">
-        <div className="shell text-center">
-          <h2 className="mx-auto max-w-4xl text-5xl font-semibold tracking-[-.05em] sm:text-7xl">Ready to begin your project?</h2>
-          <Link href="/contact" className="mt-10 inline-flex items-center gap-2 rounded-full bg-ink px-6 py-4 font-semibold text-white">Start a project <ArrowRight size={18} /></Link>
-        </div>
+
+      <section className="process-premium-cta">
+        <span className="mono-label">READY WHEN YOU ARE</span>
+        <h2>LET&apos;S TURN<br />YOUR IDEA INTO<br /><em>IMPACT.</em></h2>
+        <Link href="/contact">BEGIN YOUR PROJECT <ArrowRight size={20} /></Link>
       </section>
-    </>
+    </div>
   );
 }
