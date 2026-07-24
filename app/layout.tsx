@@ -26,9 +26,9 @@ export const metadata: Metadata = {
   title: "Zyberly Solutions | Digital Growth for Modern Brands",
   description: "Digital marketing, web and app development, and creative solutions built for growth.",
   icons: {
-    icon: [{ url: "/zyberly%20logo.jpg.jpeg", type: "image/jpeg" }],
-    shortcut: "/zyberly%20logo.jpg.jpeg",
-    apple: "/zyberly%20logo.jpg.jpeg",
+    icon: [{ url: "/zyberly-logo.png", type: "image/jpeg" }],
+    shortcut: "/zyberly-logo.png",
+    apple: "/zyberly-logo.png",
   },
 };
 
