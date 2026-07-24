@@ -1,36 +1,82 @@
 import type { Metadata } from 'next';
+import Image from 'next/image';
 import Link from 'next/link';
-import { ArrowRight, Braces } from 'lucide-react';
-import { PageHero } from '@/components/page-hero';
+import { ArrowRight, ArrowUpRight, Globe2 } from 'lucide-react';
 
 export const metadata: Metadata = { title: 'Portfolio | Zyberly Solutions' };
 
 const projects = [
-  { category: 'Hospitality & Web Design', title: 'Mirage Hotel', description: 'A Mumbai based hotel chain with renowned tour and stay options. Website developed under company guidance.', features: ['Custom booking system', 'Room showcase', 'Tour packages', 'Mobile-responsive design'] },
-  { category: 'Product Design & Engineering', title: 'Digital Commerce Platform', description: 'A fast, conversion-focused commerce experience designed to make discovery and checkout effortless.', features: ['Responsive storefront', 'Product management', 'Secure checkout', 'Performance optimization'] },
-  { category: 'Branding & Growth', title: 'Modern Brand Launch', description: 'A connected identity and launch campaign built to turn a new proposition into a recognizable market presence.', features: ['Brand strategy', 'Visual identity', 'Launch creative', 'Social campaign system'] },
-];
+  { number: '01', title: 'Oblix Pharma', category: 'Healthcare · Web Development', description: 'A polished pharmaceutical website presenting the company, products and healthcare expertise through a clear digital experience.', tags: ['Healthcare', 'Responsive', 'Corporate'], cover: '/portfolio/oblixpharma.png', href: 'https://oblixpharma.com/' },
+  { number: '02', title: 'Saleem Bridals', category: 'Fashion · E-commerce', description: 'An elegant bridal shopping experience designed to showcase collections and help customers discover statement occasion wear.', tags: ['E-commerce', 'Fashion', 'Mobile'], cover: '/portfolio/saleem%20%20bridal.png', href: 'https://saleemsbridalstore.com/' },
+  { number: '03', title: 'Aaeesha Boutique', category: 'Fashion · Boutique', description: 'A contemporary boutique storefront balancing expressive fashion imagery with a simple, conversion-focused shopping journey.', tags: ['Boutique', 'Commerce', 'UI/UX'], cover: '/portfolio/aaeesha%20boutique.png', href: 'https://aaeeshaboutique.com/' },
+] as const;
+
+function ProjectCover({ title, cover, index }: { title: string; cover: string | null; index: number }) {
+  return (
+    <div className={`portfolio-cover portfolio-cover-${(index % 3) + 1}`}>
+      {cover ? <Image src={cover} alt={`${title} website cover`} fill sizes="(max-width: 900px) 100vw, 50vw" className="object-cover" /> : (
+        <div className="portfolio-cover-placeholder">
+          <div className="portfolio-browser-bar"><i /><i /><i /><span>{title.toLowerCase().replaceAll(' ', '-')}.com</span></div>
+          <div className="portfolio-placeholder-copy">
+            <span>WEBSITE COVER</span>
+            <strong>{title}</strong>
+          </div>
+          <Globe2 />
+        </div>
+      )}
+    </div>
+  );
+}
 
 export default function PortfolioPage() {
   return (
-    <>
-      <PageHero eyebrow="Featured projects" title="Digital experiences made to matter." description="Exceptional digital experiences we’ve created for forward-thinking clients." />
-      <section className="section-pad">
-        <div className="shell space-y-10">
-          {projects.map((project, index) => (
-            <article key={project.title} className="grid overflow-hidden rounded-3xl border border-white/12 bg-white/[.035] lg:grid-cols-[.8fr_1.2fr]">
-              <div className="hero-grid min-h-72 p-10"><span className="eyebrow">0{index + 1}</span><Braces className="mt-28 h-16 w-16 text-lime" /></div>
-              <div className="p-8 sm:p-12">
-                <span className="kicker">{project.category}</span>
-                <h2 className="mt-5 text-4xl font-semibold sm:text-5xl">{project.title}</h2>
-                <p className="mt-5 max-w-2xl leading-7 text-white/55">{project.description}</p>
-                <ul className="mt-8 grid gap-3 text-white/60 sm:grid-cols-2">{project.features.map((feature) => <li key={feature}>✓ {feature}</li>)}</ul>
-                <Link href="/contact" className="button-primary mt-9">Discuss this project <ArrowRight size={18} /></Link>
-              </div>
-            </article>
-          ))}
+    <div className="premium-portfolio-page">
+      <section className="portfolio-editorial-hero">
+        <div className="portfolio-hero-shape" />
+        <div className="shell relative z-10">
+          <div className="portfolio-hero-top">
+            <span className="mono-label">[ SELECTED WORK · 2024—26 ]</span>
+            <p>Websites and digital products<br />built to perform and be remembered.</p>
+          </div>
+          <h1>WORK THAT<br /><span>MAKES AN</span><br />IMPACT.</h1>
+          <div className="portfolio-hero-bottom">
+            <p>A growing collection of digital experiences created for ambitious businesses across industries.</p>
+            <span>03 <small>FEATURED<br />PROJECTS</small></span>
+          </div>
         </div>
       </section>
-    </>
+
+      <section className="portfolio-gallery">
+        <div className="shell">
+          <div className="portfolio-gallery-heading">
+            <span className="mono-label">[ THE WORK ]</span>
+            <h2>MULTIPLE INDUSTRIES.<br />ONE STANDARD.</h2>
+          </div>
+          <div className="portfolio-grid">
+            {projects.map((project, index) => (
+              <article className="portfolio-project" key={project.number}>
+                <ProjectCover title={project.title} cover={project.cover} index={index} />
+                <div className="portfolio-project-meta">
+                  <div className="portfolio-project-index">{project.number}</div>
+                  <div>
+                    <span className="mono-label">{project.category}</span>
+                    <h3>{project.title}</h3>
+                    <p>{project.description}</p>
+                    <div className="portfolio-tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                  </div>
+                  <a href={project.href} target="_blank" rel="noopener noreferrer" aria-label={`Visit ${project.title}`}><ArrowUpRight /></a>
+                </div>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="portfolio-premium-cta">
+        <span className="mono-label">YOUR PROJECT COULD BE NEXT</span>
+        <h2>LET&apos;S CREATE<br /><em>SOMETHING ICONIC.</em></h2>
+        <Link href="/contact">START A PROJECT <ArrowRight size={20} /></Link>
+      </section>
+    </div>
   );
 }
