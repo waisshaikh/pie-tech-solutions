@@ -272,6 +272,7 @@ img,svg,canvas,iframe{max-width:100%}
   .process-track:before{left:14px}
   .process-stage,.process-stage-right{width:calc(100% - 32px);align-self:flex-end}
 }
+
 @media(max-width:800px){
   .mono-label{font-size:.62rem;line-height:1.5}
   .services-editorial-hero,.process-editorial-hero,.portfolio-editorial-hero,.about-editorial-hero,.contact-editorial-hero{padding-inline:0}
@@ -362,4 +363,13 @@ img,svg,canvas,iframe{max-width:100%}
   .kinetic-robot{height:66vh}
   .hero-meta{margin-top:2vh}
   .services-editorial-hero,.process-editorial-hero,.portfolio-editorial-hero,.about-editorial-hero,.contact-editorial-hero{min-height:auto;padding-top:120px}
+}
+
+/* Homepage hero alignment: keep the divider as the robot's floor only on mobile. */
+@media(min-width:901px){
+  .hero-meta{border-top:0}
+}
+@media(max-width:900px){
+  .kinetic-robot{margin-bottom:0}
+  .hero-meta{margin-top:-4px}
 }
