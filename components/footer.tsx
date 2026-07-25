@@ -25,9 +25,12 @@ export function Footer() {
           </div>
           <div>
             <p className="footer-label">Contact</p>
-            <a className="footer-link" href="mailto:hello@zyberly.in">hello@zyberly.in</a>
-            <a className="footer-link" href="tel:+918779506310">+91 8779 506310</a>
-            <p className="mt-4 text-sm text-white/35">Mumbai, Maharashtra</p>
+            <a className="footer-link" href="mailto:info@zyberly.in">info@zyberly.in</a>
+            <a className="footer-link" href="mailto:mojammil@zyberly.in">mojammil@zyberly.in</a>
+            <a className="footer-link" href="mailto:wais@zyberly.in">wais@zyberly.in</a>
+            <a className="footer-link" href="tel:+919321582803">+91 93215 82803</a>
+            <a className="footer-link" href="tel:+919657089562">+91 96570 89562</a>
+            <p className="mt-4 max-w-xs text-sm text-white/35">Shop No. 3, Nepean Sea Road, Malabar Hill, Mumbai 400026</p>
           </div>
         </div>
         <div className="mt-16 flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/28 sm:flex-row">
