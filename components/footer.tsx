@@ -35,7 +35,11 @@ export function Footer() {
         </div>
         <div className="mt-16 flex flex-col justify-between gap-3 border-t border-white/10 pt-6 text-xs text-white/28 sm:flex-row">
           <p>© 2026 Zyberly. All rights reserved.</p>
-          <p>Privacy Policy · Terms of Service</p>
+          <div className="footer-legal-links">
+            <a href="/privacy-policy">Privacy Policy</a>
+            <span>·</span>
+            <a href="/terms-and-conditions">Terms &amp; Conditions</a>
+          </div>
         </div>
       </div>
     </footer>

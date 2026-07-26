@@ -247,10 +247,10 @@ footer{background:var(--premium-paper)!important;border-color:var(--premium-ink)
 .contact-map-copy p{margin-top:1.5rem;line-height:1.7;opacity:.62}
 .contact-map-copy>a{display:inline-flex;width:max-content;align-items:center;gap:.6rem;margin-top:2rem;border:2px solid var(--premium-ink);border-radius:999px;padding:.85rem 1.1rem;font-family:var(--font-space-mono);font-size:.65rem;font-weight:700}
 .contact-map iframe{width:100%;height:100%;min-height:520px;border:0;filter:grayscale(1) contrast(.92)}
-.whatsapp-widget{position:fixed;right:22px;bottom:22px;z-index:99999;display:flex;align-items:center;gap:.65rem;border:2px solid #0b5f32;border-radius:999px;background:#25d366;padding:.72rem 1rem;color:#063d21!important;box-shadow:0 12px 30px rgba(0,0,0,.24);font-family:var(--font-space-mono);font-size:.68rem;font-weight:700;transition:transform .25s,box-shadow .25s}
+.whatsapp-widget{position:fixed;right:22px;bottom:8px;z-index:99999;display:flex;align-items:center;gap:.65rem;border:2px solid #0b5f32;border-radius:999px;background:#25d366;padding:.72rem 1rem;color:#063d21!important;box-shadow:0 12px 30px rgba(0,0,0,.24);font-family:var(--font-space-mono);font-size:.68rem;font-weight:700;transition:transform .25s,box-shadow .25s}
 .whatsapp-widget:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 16px 36px rgba(0,0,0,.3)}
 .whatsapp-widget svg{width:1.5rem;height:1.5rem;flex:none}
-@media(max-width:800px){.contact-map{grid-template-columns:1fr}.contact-map-copy{min-height:auto}.contact-map iframe{min-height:390px}.whatsapp-widget{right:14px;bottom:14px;width:54px;height:54px;justify-content:center;padding:0}.whatsapp-widget span{display:none}}
+@media(max-width:800px){.contact-map{grid-template-columns:1fr}.contact-map-copy{min-height:auto}.contact-map iframe{min-height:390px}.whatsapp-widget{right:10px;bottom:7px;width:54px;height:54px;justify-content:center;padding:0}.whatsapp-widget span{display:none}}
 
 /* Global device responsiveness */
 html,body{max-width:100%;overflow-x:hidden}
@@ -501,6 +501,43 @@ img,svg,canvas,iframe{max-width:100%}
 @keyframes contact-send-sweep{to{transform:translateX(110%)}}
 @keyframes contact-success-sweep{0%{transform:translateX(-110%)}100%{transform:translateX(110%)}}
 @keyframes contact-check-pop{0%{opacity:0;transform:scale(.2) rotate(-25deg)}65%{opacity:1;transform:scale(1.28) rotate(4deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+
+/* Legal pages */
+.footer-legal-links{position:relative;z-index:100001;display:flex;align-items:center;gap:.45rem;pointer-events:auto}
+.footer-legal-links a{position:relative;display:inline-block;color:var(--premium-forest)!important;text-decoration:underline;text-decoration-thickness:1px;text-underline-offset:4px;pointer-events:auto;cursor:pointer;transition:color .2s,opacity .2s}
+.footer-legal-links a:hover{color:#0c302a!important;opacity:.7}
+.legal-page{background:var(--premium-paper);color:var(--premium-ink)}
+.legal-hero{min-height:78svh;padding:clamp(9rem,15vw,13rem) 0 5rem;border-bottom:1px solid rgba(10,15,13,.2)}
+.legal-hero h1{max-width:1150px;margin-top:clamp(2.5rem,6vw,5.5rem);font-family:var(--font-archivo);font-size:clamp(4rem,9vw,10.5rem);line-height:.82;letter-spacing:-.065em}
+.legal-hero-meta{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:3rem;align-items:end;margin-top:clamp(3rem,7vw,6rem);padding-top:1.5rem;border-top:1px solid rgba(10,15,13,.25)}
+.legal-hero-meta p{max-width:650px;font-size:clamp(1.05rem,1.65vw,1.45rem);line-height:1.6;color:rgba(10,15,13,.66)}
+.legal-hero-meta>span{font-family:var(--font-space-mono);font-size:.68rem;font-weight:700;line-height:1.7;text-align:right}
+.legal-body{padding:clamp(5rem,10vw,9rem) 0}
+.legal-layout{display:grid;grid-template-columns:minmax(210px,.55fr) minmax(0,1.45fr);gap:clamp(3rem,8vw,8rem);align-items:start}
+.legal-layout aside{position:sticky;top:120px}
+.legal-layout aside nav{display:grid;margin-top:2rem;border-top:1px solid rgba(10,15,13,.18)}
+.legal-layout aside a{display:grid;grid-template-columns:30px 1fr;gap:.8rem;padding:.8rem 0;border-bottom:1px solid rgba(10,15,13,.12);font-family:var(--font-space-mono);font-size:.64rem;font-weight:700;text-transform:uppercase;color:rgba(10,15,13,.55);transition:color .2s,transform .2s}
+.legal-layout aside a:hover{color:var(--premium-forest);transform:translateX(4px)}
+.legal-layout aside a span{color:var(--premium-brass)}
+.legal-layout article>section{display:grid;grid-template-columns:42px minmax(0,1fr);gap:1rem;padding:0 0 clamp(3rem,6vw,5rem);margin-bottom:clamp(3rem,6vw,5rem);border-bottom:1px solid rgba(10,15,13,.16);scroll-margin-top:130px}
+.legal-layout article>section>span{padding-top:.6rem;font-family:var(--font-space-mono);font-size:.65rem;font-weight:700;color:var(--premium-brass)}
+.legal-layout h2{font-family:var(--font-archivo);font-size:clamp(2rem,4vw,4.25rem);line-height:.95;letter-spacing:-.045em;text-transform:uppercase}
+.legal-layout article p{max-width:800px;margin-top:1.25rem;font-size:clamp(.98rem,1.3vw,1.12rem);line-height:1.85;color:rgba(10,15,13,.68)}
+.legal-layout article a{font-weight:700;color:var(--premium-forest);text-decoration:underline;text-underline-offset:3px}
+.legal-contact{background:var(--premium-forest);padding:clamp(6rem,11vw,10rem) 0;color:var(--premium-paper)}
+.legal-contact h2{margin:2rem 0;font-family:var(--font-archivo);font-size:clamp(4rem,9vw,9.5rem);line-height:.82;letter-spacing:-.065em}
+.legal-contact a{display:inline-flex;border:1px solid var(--premium-paper);border-radius:999px;padding:1rem 1.35rem;font-family:var(--font-space-mono);font-size:.72rem;font-weight:700;color:var(--premium-paper)}
+.legal-contact a:hover{background:var(--premium-paper);color:var(--premium-forest)}
+@media(max-width:800px){
+  .legal-hero{min-height:auto;padding-top:8rem}
+  .legal-hero-meta{grid-template-columns:1fr}
+  .legal-hero-meta>span{text-align:left}
+  .legal-layout{grid-template-columns:1fr}
+  .legal-layout aside{position:relative;top:auto}
+  .legal-layout aside nav{display:none}
+  .legal-layout article>section{grid-template-columns:28px minmax(0,1fr)}
+  .footer-legal-links{flex-wrap:wrap}
+}
 .contact-form-status{
   margin-top:.25rem;
   border:1px solid rgba(20,66,56,.2);
