@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
-import { ArrowUpRight, Mail, MapPin, Phone, Send } from 'lucide-react';
+import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
+import { ContactForm } from '@/components/contact-form';
 
 export const metadata: Metadata = { title: 'Contact | Zyberly Solutions' };
 
@@ -73,34 +74,7 @@ export default function ContactPage() {
               </div>
             </aside>
 
-            <form className="contact-premium-form">
-              <div className="contact-form-top">
-                <span className="mono-label">PROJECT ENQUIRY</span>
-                <span>01 / 01</span>
-              </div>
-              <div className="contact-form-grid">
-                <label>YOUR NAME*<input required name="name" placeholder="Jane Smith" /></label>
-                <label>WORK EMAIL*<input required type="email" name="email" placeholder="jane@company.com" /></label>
-                <label>PHONE NUMBER<input type="tel" name="phone" placeholder="+91" /></label>
-                <label>COMPANY<input name="company" placeholder="Your company" /></label>
-              </div>
-              <label>WHAT CAN WE HELP WITH?
-                <select name="service" defaultValue="">
-                  <option value="" disabled>Select a service</option>
-                  <option>Web Development</option>
-                  <option>Mobile App Development</option>
-                  <option>UI/UX Design</option>
-                  <option>Branding & Identity</option>
-                  <option>Digital Marketing</option>
-                  <option>Custom Software</option>
-                </select>
-              </label>
-              <label>TELL US ABOUT THE PROJECT*
-                <textarea required name="message" rows={6} placeholder="A few words about your goals, timing and what success looks like..." />
-              </label>
-              <button type="submit">SEND YOUR ENQUIRY <Send size={18} /></button>
-              <p>By submitting this form, you agree that we may contact you about your enquiry.</p>
-            </form>
+            <ContactForm />
           </div>
         </div>
       </section>

@@ -335,7 +335,7 @@ img,svg,canvas,iframe{max-width:100%}
   .about-value-card{min-height:390px;border-radius:20px;padding:1.4rem}
   .contact-details{min-height:620px;padding:1.5rem}
   .contact-channels strong{font-size:.78rem;overflow-wrap:anywhere}
-  .contact-premium-form{gap:1.25rem;padding:1.4rem}
+.contact-premium-form{gap:1.25rem;padding:1.4rem}
   .contact-map{border-radius:20px}
   .contact-map-copy{padding:2rem 1.4rem}
   .contact-map-copy h3{font-size:3.5rem}
@@ -476,6 +476,50 @@ img,svg,canvas,iframe{max-width:100%}
 }
 @media(max-width:900px){
   .scroll-dial{transform:none}
+}
+
+.contact-honeypot{
+  position:absolute!important;
+  left:-10000px!important;
+  width:1px!important;
+  height:1px!important;
+  overflow:hidden!important;
+}
+.contact-premium-form button:disabled{
+  transform:none!important;
+}
+.contact-submit{position:relative;isolation:isolate;overflow:hidden;transition:background .4s,color .4s,border-color .4s,box-shadow .4s!important}
+.contact-submit-copy{position:relative;z-index:2;display:inline-flex;align-items:center;justify-content:center;gap:.7rem}
+.contact-submit-shine{pointer-events:none;position:absolute;inset:-2px;z-index:1;display:block;background:linear-gradient(105deg,transparent 25%,rgba(255,255,255,.35) 48%,transparent 70%);opacity:0;transform:translateX(-110%)}
+.contact-submit.sending{cursor:wait;opacity:1!important}
+.contact-submit.sending .contact-submit-shine{opacity:1;animation:contact-send-sweep 1.15s ease-in-out infinite}
+.contact-submit-spinner{animation:contact-spinner .8s linear infinite}
+.contact-submit.success{cursor:default!important;border-color:#1d7655!important;background:#1d7655!important;color:#fff!important;box-shadow:0 12px 30px rgba(29,118,85,.26),inset 0 0 0 1px rgba(255,255,255,.16)!important}
+.contact-submit.success .contact-submit-shine{opacity:.65;animation:contact-success-sweep .8s ease-out forwards}
+.contact-submit-check{stroke-width:3;animation:contact-check-pop .55s cubic-bezier(.16,1,.3,1) both}
+@keyframes contact-spinner{to{transform:rotate(360deg)}}
+@keyframes contact-send-sweep{to{transform:translateX(110%)}}
+@keyframes contact-success-sweep{0%{transform:translateX(-110%)}100%{transform:translateX(110%)}}
+@keyframes contact-check-pop{0%{opacity:0;transform:scale(.2) rotate(-25deg)}65%{opacity:1;transform:scale(1.28) rotate(4deg)}100%{opacity:1;transform:scale(1) rotate(0)}}
+.contact-form-status{
+  margin-top:.25rem;
+  border:1px solid rgba(20,66,56,.2);
+  border-radius:14px;
+  padding:.9rem 1rem;
+  font-family:var(--font-space-mono);
+  font-size:.68rem;
+  font-weight:700;
+  line-height:1.6;
+}
+.contact-form-status.success{
+  border-color:rgba(20,105,71,.32);
+  background:rgba(45,156,105,.1);
+  color:#125c41;
+}
+.contact-form-status.error{
+  border-color:rgba(161,54,46,.3);
+  background:rgba(184,67,57,.09);
+  color:#8a3029;
 }
 
 /* Charged chest attachment: electric core, orbiting energy and a short magic burst. */
