@@ -24,11 +24,9 @@ export function RobotScene() {
     const observer=new IntersectionObserver(([entry])=>{
       inView=entry.isIntersecting;
       if(inView)schedule();
-      else setActive(false);
     },{rootMargin:'160px'});
     const visibility=()=>{
-      if(document.hidden)setActive(false);
-      else if(inView)schedule();
+      if(!document.hidden&&inView)schedule();
     };
     observer.observe(element);
     document.addEventListener('visibilitychange',visibility);
@@ -39,7 +37,10 @@ export function RobotScene() {
       if(timer.current)clearTimeout(timer.current);
     };
   },[]);
-  const handleLoad=()=>{timer.current=setTimeout(()=>setShowBrand(true),900)};
-  return <div ref={container} className="relative isolate -mx-16 h-[440px] lg:-mr-28 lg:h-[700px]"><div className="absolute inset-0 z-0">{active?<SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="h-full w-full" onLoad={handleLoad}/>:<div className="h-full w-full" aria-hidden="true"/>}</div>{showBrand&&active&&<div className="robot-chest-brand robot-chest-brand-enter" aria-hidden="true"><span className="robot-brand-flash"/><Image src="/zyberly-logo.png" alt="" width={320} height={320} sizes="80px" className="zyberly-wordmark"/></div>}</div>;
+  const handleLoad=()=>{
+    if(timer.current)clearTimeout(timer.current);
+    timer.current=setTimeout(()=>setShowBrand(true),2700);
+  };
+  return <div ref={container} className="relative isolate -mx-16 h-[440px] lg:-mr-28 lg:h-[700px]"><div className="absolute inset-0 z-0">{active?<SplineScene scene="https://prod.spline.design/kZDDjO5HuC9GJUM2/scene.splinecode" className="h-full w-full" onLoad={handleLoad}/>:<div className="h-full w-full" aria-hidden="true"/>}</div>{showBrand&&active&&<div className="robot-chest-brand robot-chest-brand-enter" aria-hidden="true"><span className="robot-brand-flash"/><span className="robot-energy-ring"/><Image src="/zyberly-logo.png" alt="" width={320} height={320} sizes="80px" className="zyberly-wordmark"/></div>}</div>;
 }
 
