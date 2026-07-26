@@ -249,7 +249,7 @@ footer{background:var(--premium-paper)!important;border-color:var(--premium-ink)
 .contact-map iframe{width:100%;height:100%;min-height:520px;border:0;filter:grayscale(1) contrast(.92)}
 .whatsapp-widget{position:fixed;right:22px;bottom:22px;z-index:99999;display:flex;align-items:center;gap:.65rem;border:2px solid #0b5f32;border-radius:999px;background:#25d366;padding:.72rem 1rem;color:#063d21!important;box-shadow:0 12px 30px rgba(0,0,0,.24);font-family:var(--font-space-mono);font-size:.68rem;font-weight:700;transition:transform .25s,box-shadow .25s}
 .whatsapp-widget:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 16px 36px rgba(0,0,0,.3)}
-.whatsapp-widget i{font-size:1.5rem}
+.whatsapp-widget svg{width:1.5rem;height:1.5rem;flex:none}
 @media(max-width:800px){.contact-map{grid-template-columns:1fr}.contact-map-copy{min-height:auto}.contact-map iframe{min-height:390px}.whatsapp-widget{right:14px;bottom:14px;width:54px;height:54px;justify-content:center;padding:0}.whatsapp-widget span{display:none}}
 
 /* Global device responsiveness */

@@ -43,10 +43,6 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${archivo.variable} ${spaceMono.variable} h-full antialiased`}
     >
-      <head>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/brands.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.0/css/fontawesome.min.css" />
-      </head>
       <body className="min-h-full flex flex-col"><Header/><main className="flex-1">{children}</main><Footer/><WhatsAppWidget/></body>
     </html>
   );
