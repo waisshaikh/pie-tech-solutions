@@ -16,7 +16,10 @@ export function ContactForm() {
     setStatus({ type: "sending" });
 
     try {
-      const response = await fetch("/api/contact", {
+      const endpoint =
+        process.env.NEXT_PUBLIC_CONTACT_API_URL ||
+        "https://api.zyberly.in/contact";
+      const response = await fetch(endpoint, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(Object.fromEntries(formData.entries())),

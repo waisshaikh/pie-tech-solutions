@@ -1,0 +1,15 @@
+{
+  "name": "zyberly-contact-api",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=20.9 <25"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "nodemailer": "^9.0.3"
+  }
+}
