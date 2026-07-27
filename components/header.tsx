@@ -23,7 +23,7 @@ export function Header() {
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/88 backdrop-blur-xl">
       <div className="mx-auto flex h-20 max-w-[1440px] items-center justify-between px-5 sm:px-8 lg:px-12">
         <Link href="/" onClick={() => setOpen(false)}>
-          <Image src="/zyberly-navbar-logo.png" alt="Zyberly" width={2149} height={441} priority className="zyberly-wordmark h-11 w-44 rounded-md" />
+          <Image src="/zyberly-navbar-logo.webp" alt="Zyberly" width={2149} height={441} priority className="zyberly-wordmark h-11 w-44 rounded-md" />
         </Link>
         <nav className="hidden items-center gap-7 lg:flex">
           {links.map(([label, href]) => <Link key={href} href={href} className={`nav-link ${pathname === href ? 'active' : ''}`}>{label}</Link>)}

@@ -16,7 +16,7 @@ export function Footer() {
       <div className="shell py-16">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr]">
           <div>
-            <Link href="/"><Image src="/zyberly-navbar-logo.png" alt="Zyberly" width={2149} height={441} className="zyberly-wordmark h-14 w-52" /></Link>
+            <Link href="/"><Image src="/zyberly-navbar-logo.webp" alt="Zyberly" width={2149} height={441} className="zyberly-wordmark h-14 w-52" /></Link>
             <p className="mt-5 max-w-sm leading-7 text-white/42">Everything your brand needs, delivered seamlessly. From design to code, hosting to photography — we do it all.</p>
           </div>
           <div>

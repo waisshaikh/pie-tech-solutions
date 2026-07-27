@@ -396,7 +396,7 @@ img,svg,canvas,iframe{max-width:100%}
 /* Premium route change: a fast departure followed by a polished diagonal reveal. */
 .route-stage{min-height:100%}
 ::view-transition-group(.route-premium){
-  animation-duration:680ms;
+  animation-duration:520ms;
   animation-timing-function:cubic-bezier(.22,1,.36,1);
 }
 ::view-transition-image-pair(.route-premium){
@@ -406,26 +406,15 @@ img,svg,canvas,iframe{max-width:100%}
   animation:premium-page-out 240ms cubic-bezier(.4,0,1,1) both;
 }
 ::view-transition-new(.route-premium){
-  animation:premium-page-in 680ms cubic-bezier(.16,1,.3,1) both;
+  animation:premium-page-in 520ms cubic-bezier(.16,1,.3,1) both;
 }
 @keyframes premium-page-out{
-  0%{opacity:1;filter:blur(0);transform:scale(1)}
-  100%{opacity:0;filter:blur(5px);transform:scale(.985)}
+  0%{opacity:1;transform:translateX(0)}
+  100%{opacity:0;transform:translateX(-18px)}
 }
 @keyframes premium-page-in{
-  0%{
-    opacity:0;
-    filter:blur(10px) saturate(.72);
-    clip-path:polygon(0 0,14% 0,0 100%,0 100%);
-    transform:translateY(18px) scale(1.012);
-  }
-  38%{opacity:1;filter:blur(2px) saturate(.92)}
-  100%{
-    opacity:1;
-    filter:blur(0) saturate(1);
-    clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
-    transform:translateY(0) scale(1);
-  }
+  0%{opacity:0;transform:translateX(34px)}
+  100%{opacity:1;transform:translateX(0)}
 }
 @media(prefers-reduced-motion:reduce){
   ::view-transition-old(*),
@@ -603,4 +592,27 @@ img,svg,canvas,iframe{max-width:100%}
   25%{opacity:.9}
   70%{opacity:.55;transform:translate(-50%,-50%) scale(1.05) rotate(12deg)}
   100%{opacity:0;transform:translate(-50%,-50%) scale(1.22) rotate(28deg)}
+}
+
+/* Skip layout and paint work for sections until they approach the viewport. */
+.marquee-wrap,
+.kinetic-intro,
+.kinetic-services,
+.kinetic-cta,
+.services-bento,
+.process-story,
+.portfolio-gallery,
+.about-manifesto,
+.about-values,
+.about-premium-cta,
+.contact-main,
+.contact-closing,
+.legal-body,
+.legal-contact{
+  content-visibility:auto;
+  contain-intrinsic-size:auto 900px;
+}
+.kinetic-robot{contain:layout paint style}
+@media(max-width:900px){
+  .kinetic-robot{mix-blend-mode:normal}
 }
