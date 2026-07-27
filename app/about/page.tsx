@@ -21,7 +21,7 @@ export default function AboutPage() {
             <span className="mono-label">[ ABOUT ZYBERLY · EST. 2026 ]</span>
             <p>An independent digital studio<br />for brands ready to move forward.</p>
           </div>
-          <h1>SMALL TEAM.<br /><span>BIG ENERGY.</span><br />REAL IMPACT.</h1>
+          <h1>BOLD MINDS.<br /><span>BIG ENERGY.</span><br />REAL IMPACT.</h1>
           <div className="about-hero-bottom">
             <p>Strategy, design, technology and growth thinking brought together as one connected creative force.</p>
             <Sparkles />
