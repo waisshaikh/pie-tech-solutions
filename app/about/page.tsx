@@ -59,7 +59,11 @@ export default function AboutPage() {
           </div>
           <div className="about-values-grid">
             {values.map(({ number, icon: Icon, title, text, tone }) => (
-              <article className={`about-value-card about-value-${tone}`} key={number}>
+              <article
+                className={`about-value-card about-value-${tone}`}
+                key={number}
+                style={tone === 'blue' ? { backgroundColor: '#3157ff', color: '#ffffff' } : undefined}
+              >
                 <div><span>{number}</span><Icon /></div>
                 <h3>{title}</h3>
                 <p>{text}</p>

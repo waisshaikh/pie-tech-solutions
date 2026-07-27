@@ -6,29 +6,27 @@ import { SplineScene } from '@/components/ui/splite';
 
 export function RobotScene() {
   const [showBrand,setShowBrand]=useState(false);
-  const [active,setActive]=useState(false);
+  const [active]=useState(true);
   const container=useRef<HTMLDivElement>(null);
   const timer=useRef<ReturnType<typeof setTimeout>|null>(null);
+  const pauseTimer=useRef<ReturnType<typeof setTimeout>|null>(null);
   const splineApp=useRef<Application|null>(null);
+  const playBriefly=()=>{
+    const app=splineApp.current;
+    if(!app)return;
+    app.play();
+    app.requestRender();
+    if(pauseTimer.current)clearTimeout(pauseTimer.current);
+    pauseTimer.current=setTimeout(()=>app.stop(),5000);
+  };
   useEffect(()=>{
     const element=container.current;
     if(!element)return;
     let inView=false;
-    let idleId:number|undefined;
-    const schedule=()=>{
-      if(!inView||document.hidden)return;
-      if('requestIdleCallback' in window){
-        idleId=window.requestIdleCallback(()=>setActive(true),{timeout:800});
-      }else{
-        timer.current=setTimeout(()=>setActive(true),200);
-      }
-    };
     const observer=new IntersectionObserver(([entry])=>{
       inView=entry.isIntersecting;
       if(inView){
-        schedule();
-        splineApp.current?.play();
-        splineApp.current?.requestRender();
+        playBriefly();
       }else{
         splineApp.current?.stop();
       }
@@ -37,9 +35,7 @@ export function RobotScene() {
       if(document.hidden){
         splineApp.current?.stop();
       }else if(inView){
-        schedule();
-        splineApp.current?.play();
-        splineApp.current?.requestRender();
+        playBriefly();
       }
     };
     observer.observe(element);
@@ -47,12 +43,13 @@ export function RobotScene() {
     return ()=>{
       observer.disconnect();
       document.removeEventListener('visibilitychange',visibility);
-      if(idleId!==undefined&&'cancelIdleCallback' in window)window.cancelIdleCallback(idleId);
       if(timer.current)clearTimeout(timer.current);
+      if(pauseTimer.current)clearTimeout(pauseTimer.current);
     };
   },[]);
   const handleLoad=(app:Application)=>{
     splineApp.current=app;
+    playBriefly();
     if(timer.current)clearTimeout(timer.current);
     timer.current=setTimeout(()=>setShowBrand(true),2700);
   };

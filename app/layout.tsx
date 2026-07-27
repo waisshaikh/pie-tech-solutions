@@ -43,6 +43,10 @@ export default function RootLayout({
       lang="en"
       className={`${inter.variable} ${archivo.variable} ${spaceMono.variable} h-full antialiased`}
     >
+      <head>
+        <link rel="preconnect" href="https://prod.spline.design" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://prod.spline.design" />
+      </head>
       <body className="min-h-full flex flex-col"><Header/><main className="flex-1">{children}</main><Footer/><WhatsAppWidget/></body>
     </html>
   );
