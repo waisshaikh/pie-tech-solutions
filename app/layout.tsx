@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import { Archivo_Black, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import "./premium.css";
@@ -52,7 +53,9 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Header/>
         <PersistentRobot/>
-        <main className="flex-1">{children}</main>
+        <ViewTransition enter="route-stairs" exit="route-stairs" default="route-stairs">
+          <main className="route-stage flex-1">{children}</main>
+        </ViewTransition>
         <Footer/>
         <WhatsAppWidget/>
       </body>

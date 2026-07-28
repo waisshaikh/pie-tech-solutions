@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
     unoptimized: true,
   },
   devIndicators: false,
+  experimental: {
+    viewTransition: true,
+  },
   turbopack: {
     root: process.cwd(),
   },
