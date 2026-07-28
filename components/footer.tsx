@@ -17,12 +17,12 @@ export function Footer() {
       <div className="shell py-16">
         <div className="grid gap-12 lg:grid-cols-[1.5fr_1fr_1fr]">
           <div>
-            <Link href="/"><Image src="/zyberly-navbar-logo.webp" alt="Zyberly" width={2149} height={441} className="zyberly-wordmark h-14 w-52" /></Link>
+            <Link href="/" transitionTypes={['route-stairs']}><Image src="/zyberly-navbar-logo.webp" alt="Zyberly" width={2149} height={441} className="zyberly-wordmark h-14 w-52" /></Link>
             <p className="mt-5 max-w-sm leading-7 text-white/42">Everything your brand needs, delivered seamlessly. From design to code, hosting to photography — we do it all.</p>
           </div>
           <div>
             <p className="footer-label">Navigation</p>
-            {links.map(([title, href]) => <Link className="footer-link" key={href} href={href}>{title}</Link>)}
+            {links.map(([title, href]) => <Link className="footer-link" key={href} href={href} transitionTypes={['route-stairs']}>{title}</Link>)}
           </div>
           <div>
             <p className="footer-label">Contact</p>

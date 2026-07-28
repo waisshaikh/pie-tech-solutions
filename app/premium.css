@@ -401,6 +401,14 @@ img,svg,canvas,iframe{max-width:100%}
 
 /* Premium route change: a stepped, staircase-style reveal. */
 .route-stage{min-height:100%}
+.persistent-robot{position:absolute;z-index:3;right:-5vw;top:28svh;width:46vw;height:72svh;overflow:hidden;opacity:0;pointer-events:none}
+.persistent-robot.is-home{opacity:1;pointer-events:auto}
+.persistent-robot>div{height:100%!important;margin:0!important}
+.kinetic-robot-space{display:none}
+@media(max-width:900px){
+  .persistent-robot{top:calc(120px + 62vw);right:auto;left:-.75rem;width:calc(100% + 1.5rem);height:43vh}
+  .kinetic-robot-space{display:block;height:43vh}
+}
 
 /* Process closing panel: retain the dark background with readable typography. */
 .process-premium-cta{

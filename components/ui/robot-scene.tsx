@@ -1,6 +1,6 @@
 ﻿'use client';
 import Image from 'next/image';
-import { useEffect, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import type { Application } from '@splinetool/runtime';
 import { SplineScene } from '@/components/ui/splite';
 
@@ -16,20 +16,6 @@ export function RobotScene() {
     app.play();
     app.requestRender();
   };
-  useEffect(()=>{
-    const visibility=()=>{
-      if(document.hidden){
-        splineApp.current?.stop();
-      }else{
-        playRobot();
-      }
-    };
-    document.addEventListener('visibilitychange',visibility);
-    return ()=>{
-      document.removeEventListener('visibilitychange',visibility);
-      if(timer.current)clearTimeout(timer.current);
-    };
-  },[]);
   const handleLoad=(app:Application)=>{
     splineApp.current=app;
     playRobot();

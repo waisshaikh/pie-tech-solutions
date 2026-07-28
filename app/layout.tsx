@@ -6,6 +6,7 @@ import "./premium.css";
 import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { WhatsAppWidget } from "@/components/whatsapp-widget";
+import { PersistentRobot } from "@/components/persistent-robot";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -51,7 +52,12 @@ export default function RootLayout({
       </head>
       <body className="min-h-full flex flex-col">
         <Header/>
-        <ViewTransition default="route-premium">
+        <PersistentRobot/>
+        <ViewTransition
+          enter={{ "route-stairs": "route-premium", default: "route-premium" }}
+          exit={{ "route-stairs": "route-premium", default: "route-premium" }}
+          default="route-premium"
+        >
           <main className="route-stage flex-1">{children}</main>
         </ViewTransition>
         <Footer/>

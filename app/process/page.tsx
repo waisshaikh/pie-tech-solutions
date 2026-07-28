@@ -56,7 +56,7 @@ export default function ProcessPage() {
       <section className="process-premium-cta">
         <span className="mono-label">READY WHEN YOU ARE</span>
         <h2>LET&apos;S TURN<br />YOUR IDEA INTO<br /><em>IMPACT.</em></h2>
-        <Link href="/contact">BEGIN YOUR PROJECT <ArrowRight size={20} /></Link>
+        <Link href="/contact" transitionTypes={['route-stairs']}>BEGIN YOUR PROJECT <ArrowRight size={20} /></Link>
       </section>
     </div>
   );

@@ -75,7 +75,7 @@ export default function AboutPage() {
       <section className="about-premium-cta">
         <span className="mono-label">MAKE US PART OF YOUR TEAM</span>
         <h2>BIG AMBITION<br />DESERVES A<br /><em>BOLD PARTNER.</em></h2>
-        <Link href="/contact">MEET YOUR NEXT PARTNER <ArrowRight size={20} /></Link>
+        <Link href="/contact" transitionTypes={['route-stairs']}>MEET YOUR NEXT PARTNER <ArrowRight size={20} /></Link>
       </section>
     </div>
   );

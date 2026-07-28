@@ -27,7 +27,7 @@ export default function ServicesPage() {
           <h1>EVERYTHING<br />YOUR BRAND<br /><span>NEEDS.</span></h1>
           <div className="services-hero-bottom">
             <p>We deliver exceptional results across multiple disciplines with precision, imagination and care.</p>
-            <Link href="/contact">START A PROJECT <ArrowRight size={18} /></Link>
+            <Link href="/contact" transitionTypes={['route-stairs']}>START A PROJECT <ArrowRight size={18} /></Link>
           </div>
         </div>
       </section>
@@ -50,7 +50,7 @@ export default function ServicesPage() {
                   <p>{description}</p>
                   <div className="service-feature-list">{features.map((feature) => <span key={feature}>{feature}</span>)}</div>
                 </div>
-                <Link href="/contact" aria-label={`Start a ${title} project`}>EXPLORE SERVICE <ArrowRight size={18} /></Link>
+                <Link href="/contact" transitionTypes={['route-stairs']} aria-label={`Start a ${title} project`}>EXPLORE SERVICE <ArrowRight size={18} /></Link>
               </article>
             ))}
           </div>
@@ -60,7 +60,7 @@ export default function ServicesPage() {
       <section className="services-premium-cta">
         <span className="mono-label">HAVE A PROJECT IN MIND?</span>
         <h2>LET&apos;S BUILD<br />WHAT&apos;S NEXT.</h2>
-        <Link href="/contact">START A CONVERSATION <ArrowRight size={20} /></Link>
+        <Link href="/contact" transitionTypes={['route-stairs']}>START A CONVERSATION <ArrowRight size={20} /></Link>
       </section>
     </div>
   );
