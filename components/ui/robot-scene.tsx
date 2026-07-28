@@ -17,28 +17,15 @@ export function RobotScene() {
     app.requestRender();
   };
   useEffect(()=>{
-    const element=container.current;
-    if(!element)return;
-    let inView=false;
-    const observer=new IntersectionObserver(([entry])=>{
-      inView=entry.isIntersecting;
-      if(inView){
-        playRobot();
-      }else{
-        splineApp.current?.stop();
-      }
-    },{rootMargin:'80px'});
     const visibility=()=>{
       if(document.hidden){
         splineApp.current?.stop();
-      }else if(inView){
+      }else{
         playRobot();
       }
     };
-    observer.observe(element);
     document.addEventListener('visibilitychange',visibility);
     return ()=>{
-      observer.disconnect();
       document.removeEventListener('visibilitychange',visibility);
       if(timer.current)clearTimeout(timer.current);
     };
