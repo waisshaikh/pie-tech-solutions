@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
+import { InstagramIcon, LinkedInIcon } from '@/components/social-icons';
 
 const links = [
   ['Home', '/'],
@@ -30,8 +31,12 @@ export function Footer() {
             <a className="footer-link" href="mailto:wais@zyberly.in">wais@zyberly.in</a>
             <a className="footer-link" href="tel:+919321582803">+91 93215 82803</a>
             <a className="footer-link" href="tel:+919657089562">+91 96570 89562</a>
-            <a className="footer-link" href="https://www.instagram.com/zyberly.in/" target="_blank" rel="noopener noreferrer">Instagram ↗</a>
-            <a className="footer-link" href="https://www.linkedin.com/company/zyberly/?originalSubdomain=in" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+            <a className="footer-link footer-social-link" href="https://www.instagram.com/zyberly.in/" target="_blank" rel="noopener noreferrer">
+              <InstagramIcon /> <span>Instagram</span>
+            </a>
+            <a className="footer-link footer-social-link" href="https://www.linkedin.com/company/zyberly/?originalSubdomain=in" target="_blank" rel="noopener noreferrer">
+              <LinkedInIcon /> <span>LinkedIn</span>
+            </a>
             <p className="mt-4 max-w-xs text-sm text-white/35">Shop No. 3, Nepean Sea Road, Malabar Hill, Mumbai 400026</p>
           </div>
         </div>

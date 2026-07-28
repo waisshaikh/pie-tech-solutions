@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { ArrowUpRight, Mail, MapPin, Phone } from 'lucide-react';
 import { ContactForm } from '@/components/contact-form';
+import { InstagramIcon, LinkedInIcon } from '@/components/social-icons';
 
 export const metadata: Metadata = { title: 'Contact | Zyberly Solutions' };
 
@@ -71,8 +72,8 @@ export default function ContactPage() {
               <div className="contact-social">
                 <span className="mono-label">FIND US ONLINE</span>
                 <div>
-                  <a href="https://www.instagram.com/zyberly.in/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
-                  <a href="https://www.linkedin.com/company/zyberly/?originalSubdomain=in" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+                  <a href="https://www.instagram.com/zyberly.in/" target="_blank" rel="noopener noreferrer"><InstagramIcon /> INSTAGRAM</a>
+                  <a href="https://www.linkedin.com/company/zyberly/?originalSubdomain=in" target="_blank" rel="noopener noreferrer"><LinkedInIcon /> LINKEDIN</a>
                 </div>
               </div>
             </aside>
