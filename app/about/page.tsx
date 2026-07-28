@@ -6,7 +6,7 @@ export const metadata: Metadata = { title: 'About | Zyberly Solutions' };
 
 const values = [
   { number: '01', icon: Eye, title: 'Curiosity', text: 'We question the obvious, explore what others overlook and find the useful truth underneath.', tone: 'paper' },
-  { number: '02', icon: Gem, title: 'Craft', text: 'The small decisions create the big feeling. We care deeply about every interaction and every detail.', tone: 'blue' },
+  { number: '02', icon: Gem, title: 'Craft', text: 'The small decisions create the big feeling. We care deeply about every interaction and every detail.', tone: 'accent' },
   { number: '03', icon: MessageCircle, title: 'Candor', text: 'Straight conversations create smarter work, faster decisions and stronger long-term partnerships.', tone: 'forest' },
 ] as const;
 
@@ -62,7 +62,6 @@ export default function AboutPage() {
               <article
                 className={`about-value-card about-value-${tone}`}
                 key={number}
-                style={tone === 'blue' ? { backgroundColor: '#3157ff', color: '#ffffff' } : undefined}
               >
                 <div><span>{number}</span><Icon /></div>
                 <h3>{title}</h3>
