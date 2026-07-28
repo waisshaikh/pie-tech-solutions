@@ -190,7 +190,9 @@ footer{background:var(--premium-paper)!important;border-color:var(--premium-ink)
 .about-value-card svg{width:clamp(2.5rem,4vw,4rem);height:auto}
 .about-value-card h3{margin-top:auto;font-family:var(--font-archivo);font-size:clamp(3rem,5vw,5.5rem);line-height:.85;text-transform:uppercase}
 .about-value-card p{margin-top:1.5rem;line-height:1.7;opacity:.65}
-.about-value-paper{border:1px solid rgba(16,21,19,.25);background:var(--premium-paper)}
+.about-value-paper{border:1px solid rgba(238,234,225,.2);background:#050505;color:#fff}
+.about-value-paper p{color:rgba(255,255,255,.78);opacity:1}
+.about-value-paper svg,.about-value-paper h3,.about-value-paper>div{color:#fff}
 .about-value-accent{background:var(--premium-forest);color:#fff}
 .about-value-accent p{color:rgba(255,255,255,.82);opacity:1}
 .about-value-accent svg,.about-value-accent h3,.about-value-accent>div{color:#fff}
