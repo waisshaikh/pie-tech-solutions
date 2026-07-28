@@ -79,7 +79,7 @@ export default function PortfolioPage() {
       <section className="portfolio-premium-cta">
         <span className="mono-label">YOUR PROJECT COULD BE NEXT</span>
         <h2>LET&apos;S CREATE<br /><em>SOMETHING ICONIC.</em></h2>
-        <Link href="/contact" transitionTypes={['route-stairs']}>START A PROJECT <ArrowRight size={20} /></Link>
+        <Link href="/contact">START A PROJECT <ArrowRight size={20} /></Link>
       </section>
     </div>
   );
