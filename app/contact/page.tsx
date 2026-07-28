@@ -70,7 +70,10 @@ export default function ContactPage() {
               </div>
               <div className="contact-social">
                 <span className="mono-label">FIND US ONLINE</span>
-                <div><a href="#">INSTAGRAM ↗</a><a href="#">LINKEDIN ↗</a></div>
+                <div>
+                  <a href="https://www.instagram.com/zyberly.in/" target="_blank" rel="noopener noreferrer">INSTAGRAM ↗</a>
+                  <a href="https://www.linkedin.com/company/zyberly/?originalSubdomain=in" target="_blank" rel="noopener noreferrer">LINKEDIN ↗</a>
+                </div>
               </div>
             </aside>
 
