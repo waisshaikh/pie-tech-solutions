@@ -395,17 +395,43 @@ img,svg,canvas,iframe{max-width:100%}
 
 /* Premium route change: a fast departure followed by a polished diagonal reveal. */
 .route-stage{min-height:100%}
+
+/* Process closing panel: retain the dark background with readable typography. */
+.process-premium-cta{
+  background:var(--premium-ink);
+  color:var(--premium-paper);
+}
+.process-premium-cta h2,
+.process-premium-cta h2 em{
+  color:var(--premium-paper);
+}
+.process-premium-cta .mono-label{
+  color:#fff;
+}
+.process-premium-cta>a{
+  border-color:var(--premium-paper);
+  background:var(--premium-paper);
+  color:var(--premium-ink);
+}
+
 ::view-transition-group(.route-premium){
+<<<<<<< HEAD
   animation-duration:380ms;
+=======
+  overflow:hidden;
+  animation-duration:360ms;
+>>>>>>> pre-july27
   animation-timing-function:cubic-bezier(.22,1,.36,1);
 }
 ::view-transition-image-pair(.route-premium){
   isolation:isolate;
 }
 ::view-transition-old(.route-premium){
-  animation:premium-page-out 240ms cubic-bezier(.4,0,1,1) both;
+  z-index:1;
+  animation:premium-page-out 180ms ease-out both;
 }
 ::view-transition-new(.route-premium){
+<<<<<<< HEAD
   animation:premium-page-in 380ms cubic-bezier(.16,1,.3,1) both;
 }
 @keyframes premium-page-out{
@@ -415,6 +441,18 @@ img,svg,canvas,iframe{max-width:100%}
 @keyframes premium-page-in{
   0%{opacity:0;transform:translateX(34px)}
   100%{opacity:1;transform:translateX(0)}
+=======
+  z-index:2;
+  animation:premium-page-in 360ms cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes premium-page-out{
+  from{opacity:1;transform:translateX(0)}
+  to{opacity:.5;transform:translateX(-4%)}
+}
+@keyframes premium-page-in{
+  from{opacity:1;transform:translateX(100%)}
+  to{opacity:1;transform:translateX(0)}
+>>>>>>> pre-july27
 }
 @media(prefers-reduced-motion:reduce){
   ::view-transition-old(*),
@@ -594,6 +632,7 @@ img,svg,canvas,iframe{max-width:100%}
   100%{opacity:0;transform:translate(-50%,-50%) scale(1.22) rotate(28deg)}
 }
 
+<<<<<<< HEAD
 /* Skip layout and paint work for sections until they approach the viewport. */
 .marquee-wrap,
 .kinetic-intro,
@@ -613,6 +652,8 @@ img,svg,canvas,iframe{max-width:100%}
   contain-intrinsic-size:auto 900px;
 }
 .kinetic-robot{contain:layout paint style;mix-blend-mode:normal;pointer-events:none}
+=======
+>>>>>>> pre-july27
 a,button{
   transition-property:color,background-color,border-color,opacity,transform;
   transition-duration:.25s;
