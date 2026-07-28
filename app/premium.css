@@ -422,7 +422,7 @@ img,svg,canvas,iframe{max-width:100%}
 
 ::view-transition-group(.route-premium){
   overflow:hidden;
-  animation-duration:720ms;
+  animation-duration:900ms;
   animation-timing-function:cubic-bezier(.22,1,.36,1);
 }
 ::view-transition-image-pair(.route-premium){
@@ -434,7 +434,7 @@ img,svg,canvas,iframe{max-width:100%}
 }
 ::view-transition-new(.route-premium){
   z-index:2;
-  animation:premium-page-stairs 720ms cubic-bezier(.76,0,.24,1) both;
+  animation:premium-page-stairs 900ms cubic-bezier(.76,0,.24,1) both;
 }
 @keyframes premium-page-out{
   0%{opacity:1;transform:translateX(0)}

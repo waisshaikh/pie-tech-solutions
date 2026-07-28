@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { ViewTransition } from "react";
 import { Archivo_Black, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import "./premium.css";
@@ -48,7 +49,14 @@ export default function RootLayout({
         <link rel="preconnect" href="https://prod.spline.design" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://prod.spline.design" />
       </head>
-      <body className="min-h-full flex flex-col"><Header/><main className="flex-1">{children}</main><Footer/><WhatsAppWidget/></body>
+      <body className="min-h-full flex flex-col">
+        <Header/>
+        <ViewTransition default="route-premium">
+          <main className="route-stage flex-1">{children}</main>
+        </ViewTransition>
+        <Footer/>
+        <WhatsAppWidget/>
+      </body>
     </html>
   );
 }
