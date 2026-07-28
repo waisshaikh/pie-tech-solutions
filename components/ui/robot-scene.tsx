@@ -9,15 +9,12 @@ export function RobotScene() {
   const [active]=useState(true);
   const container=useRef<HTMLDivElement>(null);
   const timer=useRef<ReturnType<typeof setTimeout>|null>(null);
-  const pauseTimer=useRef<ReturnType<typeof setTimeout>|null>(null);
   const splineApp=useRef<Application|null>(null);
-  const playBriefly=()=>{
+  const playRobot=()=>{
     const app=splineApp.current;
     if(!app)return;
     app.play();
     app.requestRender();
-    if(pauseTimer.current)clearTimeout(pauseTimer.current);
-    pauseTimer.current=setTimeout(()=>app.stop(),5000);
   };
   useEffect(()=>{
     const element=container.current;
@@ -26,7 +23,7 @@ export function RobotScene() {
     const observer=new IntersectionObserver(([entry])=>{
       inView=entry.isIntersecting;
       if(inView){
-        playBriefly();
+        playRobot();
       }else{
         splineApp.current?.stop();
       }
@@ -35,7 +32,7 @@ export function RobotScene() {
       if(document.hidden){
         splineApp.current?.stop();
       }else if(inView){
-        playBriefly();
+        playRobot();
       }
     };
     observer.observe(element);
@@ -44,12 +41,11 @@ export function RobotScene() {
       observer.disconnect();
       document.removeEventListener('visibilitychange',visibility);
       if(timer.current)clearTimeout(timer.current);
-      if(pauseTimer.current)clearTimeout(pauseTimer.current);
     };
   },[]);
   const handleLoad=(app:Application)=>{
     splineApp.current=app;
-    playBriefly();
+    playRobot();
     if(timer.current)clearTimeout(timer.current);
     timer.current=setTimeout(()=>setShowBrand(true),2700);
   };

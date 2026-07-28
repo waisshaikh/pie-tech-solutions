@@ -647,7 +647,7 @@ img,svg,canvas,iframe{max-width:100%}
   content-visibility:auto;
   contain-intrinsic-size:auto 900px;
 }
-.kinetic-robot{contain:layout paint style;mix-blend-mode:normal;pointer-events:none}
+.kinetic-robot{contain:layout paint style;mix-blend-mode:normal;pointer-events:auto}
 a,button{
   transition-property:color,background-color,border-color,opacity,transform;
   transition-duration:.25s;
