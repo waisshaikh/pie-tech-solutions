@@ -53,7 +53,13 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Header/>
         <PersistentRobot/>
-        <ViewTransition enter="route-stairs" exit="route-stairs" default="route-stairs">
+        <ViewTransition
+          name="route-content"
+          enter="route-stairs"
+          exit="route-stairs"
+          update="route-stairs"
+          default="route-stairs"
+        >
           <main className="route-stage flex-1">{children}</main>
         </ViewTransition>
         <Footer/>
