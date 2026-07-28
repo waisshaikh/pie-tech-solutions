@@ -6,6 +6,7 @@ header>div:first-child{border-color:rgba(16,21,19,.75);background:rgba(238,234,2
 header .logo-mark,footer .logo-mark{background:var(--premium-forest)!important;color:var(--premium-paper)!important}
 header nav.hidden{background:var(--premium-forest)}
 .nav-link:hover,.nav-link.active{background:var(--premium-paper);color:var(--premium-forest)!important}
+.mobile-nav-link.active{border-radius:12px;background:#fff;padding-inline:14px;color:var(--premium-forest)!important}
 .kinetic-hero,.kinetic-intro{background:var(--premium-paper);color:var(--premium-ink)}
 .kinetic-hero h1 span,.kinetic-intro em{color:var(--premium-forest)}
 .hero-meta{border-color:var(--premium-ink)}
