@@ -22,7 +22,15 @@ const mimeTypes = {
 createServer((request, response) => {
   const requestTarget = (request.url || "/").replace(/^\/+/, "/");
   const pathname = decodeURIComponent(new URL(requestTarget, "http://local").pathname);
-  const safePath = normalize(pathname).replace(/^([/\\])+/, "");
+  let safePath = normalize(pathname).replace(/^([/\\])+/, "");
+
+  // Next static exports request RSC payloads with a flattened final separator,
+  // e.g. /portfolio/__next.portfolio.__PAGE__.txt. Map that request back to the
+  // generated /portfolio/__next.portfolio/__PAGE__.txt file.
+  safePath = safePath.replace(
+    /(^|[\\/])(__next\.[^\\/]+)\.(__[^\\/]+__\.txt)$/,
+    "$1$2/$3",
+  );
   let filePath = join(outputRoot, safePath);
 
   if (existsSync(filePath) && statSync(filePath).isDirectory()) {

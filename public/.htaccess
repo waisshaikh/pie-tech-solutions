@@ -4,6 +4,12 @@ DirectoryIndex index.html
 <IfModule mod_rewrite.c>
   RewriteEngine On
 
+  # Map flattened Next.js RSC requests to their exported route-data files.
+  # Example: /portfolio/__next.portfolio.__PAGE__.txt
+  #       -> /portfolio/__next.portfolio/__PAGE__.txt
+  RewriteCond %{DOCUMENT_ROOT}/$1/$2/$3 -f
+  RewriteRule ^(.+)/(__next\.[^/]+)\.(__[^/]+__\.txt)$ $1/$2/$3 [L]
+
   # Always serve exported Next.js assets and real files/directories directly.
   RewriteRule ^_next/ - [L]
   RewriteCond %{REQUEST_FILENAME} -f [OR]
