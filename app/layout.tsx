@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { ViewTransition } from "react";
 import { Archivo_Black, Inter, Space_Mono } from "next/font/google";
 import "./globals.css";
 import "./premium.css";
@@ -7,6 +6,7 @@ import { Header } from "@/components/header";
 import { Footer } from "@/components/footer";
 import { WhatsAppWidget } from "@/components/whatsapp-widget";
 import { PersistentRobot } from "@/components/persistent-robot";
+import { RouteTransition } from "@/components/route-transition";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -53,17 +53,10 @@ export default function RootLayout({
       <body className="min-h-full flex flex-col">
         <Header/>
         <PersistentRobot/>
-        <ViewTransition
-          name="route-content"
-          enter="route-stairs"
-          exit="route-stairs"
-          update="route-stairs"
-          default="route-stairs"
-        >
-          <main className="route-stage flex-1">{children}</main>
-        </ViewTransition>
+        <main className="flex-1">{children}</main>
         <Footer/>
         <WhatsAppWidget/>
+        <RouteTransition/>
       </body>
     </html>
   );
