@@ -40,6 +40,16 @@ createServer((request, response) => {
   }
 
   if (!filePath.startsWith(outputRoot) || !existsSync(filePath) || statSync(filePath).isDirectory()) {
+    const notFoundPath = join(outputRoot, "404.html");
+    if (existsSync(notFoundPath)) {
+      response.writeHead(404, {
+        "Cache-Control": "no-cache",
+        "Content-Type": "text/html; charset=utf-8",
+      });
+      createReadStream(notFoundPath).pipe(response);
+      return;
+    }
+
     response.writeHead(404, { "Content-Type": "text/plain; charset=utf-8" });
     response.end("Not found");
     return;
