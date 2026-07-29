@@ -5,8 +5,8 @@ import { useEffect, useRef, useState } from 'react';
 
 type TransitionPhase = 'idle' | 'covering' | 'covered' | 'revealing';
 
-const COVER_DURATION = 780;
-const REVEAL_DURATION = 620;
+const COVER_DURATION = 920;
+const REVEAL_DURATION = 720;
 
 export function RouteTransition() {
   const pathname = usePathname();
@@ -80,6 +80,7 @@ export function RouteTransition() {
       <span className="route-stair-panel route-stair-panel--one" />
       <span className="route-stair-panel route-stair-panel--two" />
       <span className="route-stair-panel route-stair-panel--three" />
+      <span className="route-stair-panel route-stair-panel--four" />
     </div>
   );
 }
