@@ -4,7 +4,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const links = [
   ['Home', '/'],
@@ -20,6 +20,10 @@ export function Header() {
   const pathname = usePathname();
   const currentPath = pathname === '/' ? '/' : pathname.replace(/\/+$/, '');
   const isActive = (href: string) => currentPath === href;
+
+  useEffect(() => {
+    setOpen(false);
+  }, [pathname]);
 
   return (
     <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/88 backdrop-blur-xl">
