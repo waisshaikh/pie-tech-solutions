@@ -50,6 +50,30 @@ function isRateLimited(request) {
   return false;
 }
 
+async function saveLeadToErp(lead) {
+  const erpApiUrl = (process.env.ERP_API_URL || "").replace(/\/$/, "");
+  const ingestSecret = process.env.LEAD_INGEST_SECRET;
+
+  if (!erpApiUrl || !ingestSecret) {
+    throw new Error("ERP_API_URL or LEAD_INGEST_SECRET is not configured.");
+  }
+
+  const response = await fetch(`${erpApiUrl}/leads/ingest`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Lead-Secret": ingestSecret,
+    },
+    body: JSON.stringify({ ...lead, source: "zyberly.in" }),
+    signal: AbortSignal.timeout(10000),
+  });
+
+  if (!response.ok) {
+    const body = await response.text();
+    throw new Error(`ERP rejected the lead (${response.status}): ${body.slice(0, 300)}`);
+  }
+}
+
 app.get("/", (_request, response) => {
   response.json({ service: "Zyberly contact API", status: "ok" });
 });
@@ -138,6 +162,13 @@ app.post("/contact", async (request, response) => {
         </div>
       `,
     });
+
+    try {
+      await saveLeadToErp({ name, email, phone, company, service, message });
+    } catch (erpError) {
+      // Preserve the existing contact-email flow if the ERP is temporarily unavailable.
+      console.error("ERP lead sync failed:", erpError);
+    }
 
     response.json({ ok: true });
   } catch (error) {
